@@ -8,12 +8,12 @@ module Spree
 
       def create
         update_paperclip_settings
-        @styles = ActiveSupport::JSON.decode(Spree::Config[:attachment_styles]).symbolize_keys!
+        @styles = ActiveSupport::JSON.decode(SpreeBanner::Config[:banner_styles])
         super
       end
 
       def edit
-        @styles = ActiveSupport::JSON.decode(Spree::Config[:attachment_styles]).symbolize_keys!
+        @styles = ActiveSupport::JSON.decode(SpreeBanner::Config[:banner_styles])
       end
 
       def update
