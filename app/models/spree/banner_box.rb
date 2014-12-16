@@ -27,7 +27,7 @@ module Spree
     # include Spree::Core::S3Support
     # supports_s3 :attachment
     
-    Spree::BannerBox.attachment_definitions[:attachment][:styles] = ActiveSupport::JSON.decode(SpreeBanner::Config[:banner_styles])
+    Spree::BannerBox.attachment_definitions[:attachment][:styles] = JSON.parse(SpreeBanner::Config[:banner_styles])
     Spree::BannerBox.attachment_definitions[:attachment][:path] = SpreeBanner::Config[:banner_path]
     Spree::BannerBox.attachment_definitions[:attachment][:url] = SpreeBanner::Config[:banner_url]
     Spree::BannerBox.attachment_definitions[:attachment][:default_url] = SpreeBanner::Config[:banner_default_url]
@@ -59,11 +59,7 @@ module Spree
     end
 
     def enhance_settings
-      extended_hash = {}
-      ActiveSupport::JSON.decode(SpreeBanner::Config[:banner_styles]).each do |key,value|
-        extended_hash[:"#{key}"] = value
-      end
-      Spree::BannerBox.attachment_definitions[:attachment][:styles] = extended_hash
+      Spree::BannerBox.attachment_definitions[:attachment][:styles] = JSON.parse(SpreeBanner::Config[:banner_styles])
       Spree::BannerBox.attachment_definitions[:attachment][:path] = SpreeBanner::Config[:banner_path]
       Spree::BannerBox.attachment_definitions[:attachment][:url] = SpreeBanner::Config[:banner_url]
       Spree::BannerBox.attachment_definitions[:attachment][:default_url] = SpreeBanner::Config[:banner_default_url]
