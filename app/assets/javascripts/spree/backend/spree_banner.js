@@ -1,1 +1,1 @@
-//= require admin/banner_settings
+//= require spree/backend/banner_settings
