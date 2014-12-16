@@ -1,6 +1,6 @@
 Spree::Core::Engine.routes.draw do
   
-  namespace :admin do
+  namespace :backend do
     resources :banner_boxes do
       collection do
         post :update_positions
