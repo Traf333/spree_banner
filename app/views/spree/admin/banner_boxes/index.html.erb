@@ -6,7 +6,7 @@
   <div class="toolbar" data-hook="toolbar">
     <ul class="actions header-action-links inline-menu">
       <li id="new_banner_box_link">
-        <%= button_link_to t(:new_banner_box), new_object_url, { :remote => true, :icon => 'icon-plus', :id => 'admin_new_banner_box' } %>
+        <%= button_link_to t(:new_banner_box), new_object_url, { :remote => true, :icon => 'fa fa-plus', :id => 'admin_new_banner_box' } %>
       </li>
     </ul>
   </div>
@@ -48,7 +48,7 @@
         <div class="clear"></div>
 
         <div class="form-buttons actions filter-actions" data-hook="admin_banner_index_search_buttons">
-          <%= button Spree.t(:search), 'icon-search' %>
+          <%= button Spree.t(:search), 'fa fa-search' %>
         </div>
     <% end %>
   </div>
@@ -86,7 +86,7 @@
     <td class="actions" data-hook="admin_banner_index_row_actions">
       <%= link_to_edit banner_box, :no_text => true, :class => 'edit' %>
       &nbsp;
-      <%= link_to_with_icon 'icon-copy', t(:clone), clone_admin_banner_box_url(banner_box), :no_text => true, :class => 'clone' %>
+      <%= link_to_with_icon 'fa fa-copy', t(:clone), clone_admin_banner_box_url(banner_box), :no_text => true, :class => 'clone' %>
             &nbsp;
       <%= link_to_delete banner_box, :no_text => true %>
     </td>
