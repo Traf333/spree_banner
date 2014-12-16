@@ -1,6 +1,6 @@
 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @banner_box } %>
 
-<%= form_for [:backend, @banner_box], :html => { :multipart => true } do |f| %>
+<%= form_for [:admin, @banner_box], :html => { :multipart => true } do |f| %>
   <fieldset data-hook="new_banner_box">
     <legend align="center"><%= t(:new_banner_box) %></legend>
     <%= render :partial => 'form', :locals => { :f => f } %>

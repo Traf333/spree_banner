@@ -21,7 +21,7 @@
 <% content_for :table_filter do %>
   <div data-hook="admin_banner_sidebar">
 
-    <%= search_form_for [:backend, @search] do |f| %>
+    <%= search_form_for [:admin, @search] do |f| %>
         <%- locals = {:f => f} %>
         <div data-hook="admin_banner_index_search">
           <div class="alpha four columns">
