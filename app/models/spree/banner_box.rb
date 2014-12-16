@@ -1,6 +1,6 @@
 module Spree
   class BannerBox < ActiveRecord::Base
-    acts_as_list :scope => :category
+    acts_as_list :column => :category
     
     has_attached_file :attachment,
                 :url  => "/spree/banners/:id/:style_:basename.:extension",
