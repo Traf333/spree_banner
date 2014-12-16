@@ -24,8 +24,11 @@ module Spree
     }
 
     # Load user defined paperclip settings
-    # include Spree::Core::S3Support
-    # supports_s3 :attachment
+    if defined? Spree::Core::S3Support
+      include Spree::Core::S3Support
+      supports_s3 :attachment
+    end
+
     
     Spree::BannerBox.attachment_definitions[:attachment][:styles] = ActiveSupport::JSON.decode(SpreeBanner::Config[:banner_styles]).symbolize_keys!
     Spree::BannerBox.attachment_definitions[:attachment][:path] = SpreeBanner::Config[:banner_path]
