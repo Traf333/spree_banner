@@ -68,7 +68,8 @@
 </colgroup>
 <thead>
   <tr data-hook="admin_banner_index_headers">
-    <th colspan="2"><%= t(:thumbnail) %></th>
+    <th colspan="2"><%= t(:title) %></th>
+    <th><%= t(:thumbnail) %></th>
     <th><%= t(:category) %></th>
     <th><%= t(:url) %></th>
     <th data-hook="admin_banner_index_header_actions" class="actions"></th>
@@ -80,6 +81,7 @@
     <td class="no-border">
       <span class="handle"></span>
     </td>
+    <td><%= banner_box.title rescue '' %></td>
     <td class="align-center"><%= image_tag(banner_box.attachment(:mini)) %></td>
     <td class="align-center"><%= banner_box.category rescue '' %></td>
     <td class="align-center"><%= banner_box.url rescue '' %></td>

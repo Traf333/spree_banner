@@ -12,6 +12,11 @@
       <%= f.text_field :url, :class => 'fullwidth title' %>
       <%= f.error_message_on :url %>
     <% end %>
+    <%= f.field_container :title do %>
+      <%= f.label :title, raw(t(:title)) %>
+      <%= f.text_field :title, :class => 'fullwidth title' %>
+      <%= f.error_message_on :title %>
+    <% end %>
   </div>
 
   <div class="right eight columns omega" data-hook="admin_banner_box_form_right">
