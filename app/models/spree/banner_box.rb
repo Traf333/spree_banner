@@ -1,12 +1,16 @@
 module Spree
   class BannerBox < ActiveRecord::Base
     acts_as_list
-    
+
     has_attached_file :attachment,
                 :url  => "/spree/banners/:id/:style_:basename.:extension",
                 :path => ":rails_root/public/spree/banners/:id/:style_:basename.:extension",
                 :styles => { :mini => "80x80#", :small => "120x120#" },
                 :convert_options => { :all => '-strip -auto-orient' }
+
+    has_and_belongs_to_many :taxons, join_table: 'banners_taxons', class_name: 'Spree::Taxon', foreign_key: :banner_id
+
+
     # save the w,h of the original image (from which others can be calculated)
     # we need to look at the write-queue for images which have not been saved yet
     after_post_process :find_dimensions

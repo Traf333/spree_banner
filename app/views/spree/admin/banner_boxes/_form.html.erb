@@ -17,6 +17,13 @@
       <%= f.text_field :title, :class => 'fullwidth title' %>
       <%= f.error_message_on :title %>
     <% end %>
+    <div data-hook="admin_product_form_taxons">
+      <%= f.field_container :taxons do %>
+        <%= f.label :taxon_ids, Spree.t(:taxons) %><br />
+        <%= f.hidden_field :taxon_ids, :value => @banner_box.taxon_ids.join(','), :class => 'fullwidth' %>
+      <% end %>
+    </div>
+
   </div>
 
   <div class="right eight columns omega" data-hook="admin_banner_box_form_right">
@@ -53,3 +60,9 @@
 
   <div class="clear"></div>
 </div>
+
+<% unless Rails.env.test? %>
+  <script>
+  $('.select2-container').css({width: '100%'})
+  </script>
+<% end %>
