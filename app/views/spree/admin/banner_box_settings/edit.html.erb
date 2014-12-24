@@ -51,7 +51,7 @@
         <% @styles.each_with_index do |(style_name, style_value), index| %>        
           <div class="field three columns">
             <%= label_tag "banner_styles[#{style_name}]", style_name %>
-            <a href='#' alt="<%= t(:destroy)%>" title="<%= t(:destroy)%>" class='destroy_banner_style with-tip'><i class='icon-trash'></i></a>
+            <a href='#' alt="<%= t(:destroy)%>" title="<%= t(:destroy)%>" class='destroy_banner_style with-tip'><i class='fa fa-trash'></i></a>
             <%= text_field_tag "banner_styles[#{style_name}]", style_value, :class => 'fullwidth' %>
           </div>
         <% end %>
@@ -60,12 +60,12 @@
       <div id="new-banner-styles" class="row frameless"></div>
 
       <div class="field">
-        <%= link_to_with_icon 'icon-plus', t(:add_new_banner_style), '#', :class => 'add_new_banner_style button' %>
+        <%= link_to_with_icon 'plus', t(:add_new_banner_style), '#', :class => 'add_new_banner_style button' %>
       </div>
     </fieldset>    
 
     <div class="form-buttons filter-actions actions" data-hook="buttons">
-      <%= button t(:update), 'icon-refresh' %>
+      <%= button t(:update), 'fa fa-refresh' %>
     </div>
   </fieldset>
 

@@ -1,17 +1,11 @@
+.banners {
+    list-style: none;
+}
 .banner {
+    display: inline-block;
 	background: none;
-}
-
-.banner ul {
-	margin: 0px;
-	padding: 0px;
-	list-style-type: none;
-}
-
-.banner ul li {
-	float: left;
-	background: none;
-	margin: 2px;
+    vertical-align: top;
+    margin-right: 20px;
 }
 
 .banner img {

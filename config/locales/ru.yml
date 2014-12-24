@@ -1,0 +1,36 @@
+ru:
+  images_only: "Используйте формат JPG, JPEG, PNG, GIF"
+  banner_box_settings: "Настройка баннеров"
+  add_new_banner_style: "Добавить новый стиль"
+  banner_box_settings_warning: "Вам нужно будет обновить эскизы, если вы обновляете стили. Используйте rake paperclip:refresh:thumbnails CLASS=Spree::Banner чтоб изменения вступили в силу."
+  banner_settings_description: "Описание настроек баннеров"
+  banner_settings_updated: "Настройки баннеров обновлены."
+  banner_default_style: "Стиль по умолчанию"
+  banner_default_url: "URL по умолчанию"
+  banner_path: "путь Баннера"
+  banner_styles: "Paperclip стили баннеров"
+  banner_url: "Баннер URL"
+  back_to_banner_boxes_list: "Назад к списку"
+  new_banner_box: "Новый баннер"
+  listing_banner_boxes: "Список баннеров"
+  enabled: Показывать?
+  url: Ссылка
+  attachment: Картинка
+  category: Категория
+  banner_boxes: Баннеры
+  banner_box: Баннер
+  show_only_enabled: "Показывать только отмеченые"
+  notice_messages:
+    banner_box_cloned: "Баннер скопирован"
+    banner_box_not_cloned: "Баннер не скорпирован"
+  activerecord:
+    models:
+      banner_box:
+        one: Баннер
+        other: Баннеры
+    attributes:
+      banner_box:
+        category: Категория
+        updated_at: Обновлен
+        created_at: Создан
+        enabled: Показывать?

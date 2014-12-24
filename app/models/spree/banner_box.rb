@@ -1,6 +1,6 @@
 module Spree
   class BannerBox < ActiveRecord::Base
-    acts_as_list :column => :category
+    acts_as_list
     
     has_attached_file :attachment,
                 :url  => "/spree/banners/:id/:style_:basename.:extension",
@@ -24,10 +24,13 @@ module Spree
     }
 
     # Load user defined paperclip settings
-    # include Spree::Core::S3Support
-    # supports_s3 :attachment
+    if defined? Spree::Core::S3Support
+      include Spree::Core::S3Support
+      supports_s3 :attachment
+    end
+
     
-    Spree::BannerBox.attachment_definitions[:attachment][:styles] = ActiveSupport::JSON.decode(Spree::Config[:attachment_styles]).symbolize_keys!
+    Spree::BannerBox.attachment_definitions[:attachment][:styles] = ActiveSupport::JSON.decode(SpreeBanner::Config[:banner_styles]).symbolize_keys!
     Spree::BannerBox.attachment_definitions[:attachment][:path] = SpreeBanner::Config[:banner_path]
     Spree::BannerBox.attachment_definitions[:attachment][:url] = SpreeBanner::Config[:banner_url]
     Spree::BannerBox.attachment_definitions[:attachment][:default_url] = SpreeBanner::Config[:banner_default_url]
@@ -59,7 +62,7 @@ module Spree
     end
 
     def enhance_settings
-      Spree::BannerBox.attachment_definitions[:attachment][:styles] = ActiveSupport::JSON.decode(Spree::Config[:attachment_styles]).symbolize_keys!
+      Spree::BannerBox.attachment_definitions[:attachment][:styles] = ActiveSupport::JSON.decode(SpreeBanner::Config[:banner_styles]).symbolize_keys!
       Spree::BannerBox.attachment_definitions[:attachment][:path] = SpreeBanner::Config[:banner_path]
       Spree::BannerBox.attachment_definitions[:attachment][:url] = SpreeBanner::Config[:banner_url]
       Spree::BannerBox.attachment_definitions[:attachment][:default_url] = SpreeBanner::Config[:banner_default_url]
