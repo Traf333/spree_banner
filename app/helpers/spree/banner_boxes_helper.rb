@@ -5,7 +5,7 @@ module Spree
       params[:category] ||= "home"
       params[:class] ||= "banner"
       params[:style] ||= SpreeBanner::Config[:banner_default_style]
-      banners = Spree::BannerBox.enabled(params[:category]).order(:position)
+      banners = params[:collection] || Spree::BannerBox.enabled(params[:category]).order(:position)
       return '' if banners.empty?
       content_tag :ul, class: 'banners' do
         banners.map do |ban|
