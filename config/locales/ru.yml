@@ -2,7 +2,7 @@ ru:
   images_only: "Используйте формат JPG, JPEG, PNG, GIF"
   banner_box_settings: "Настройка баннеров"
   add_new_banner_style: "Добавить новый стиль"
-  banner_box_settings_warning: "Вам нужно будет обновить эскизы, если вы обновляете стили. Используйте rake paperclip:refresh:thumbnails CLASS=Spree::Banner чтоб изменения вступили в силу."
+  banner_box_settings_warning: "Вам нужно будет обновить эскизы, если вы обновляете стили. Используйте rake paperclip:refresh:thumbnails CLASS=Spree::BannerBox чтоб изменения вступили в силу."
   banner_settings_description: "Описание настроек баннеров"
   banner_settings_updated: "Настройки баннеров обновлены."
   banner_default_style: "Стиль по умолчанию"
