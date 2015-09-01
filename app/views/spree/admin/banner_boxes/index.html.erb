@@ -27,7 +27,7 @@
           <div class="alpha four columns">
             <div class="field">
               <%= f.label :category_eq, Spree.t(:category) %>
-              <%= f.select :category_eq, Spree::BannerBox.categories_for_select, {:include_blank => true}, {:class => 'select2 fullwidth'} %>
+              <%= f.select :category_eq, SpreeBanner::Config.categories, {:include_blank => true}, {:class => 'select2 fullwidth'} %>
             </div>
           </div>
           <div class="eight columns">
@@ -39,7 +39,7 @@
           <div class="three columns omega">
             <div class="field checkbox">
               <label>
-                <%= f.check_box :enabled_true %>
+                <%= f.check_box :enabled_true, {}, 1, nil %>
                 <%= Spree.t(:show_only_enabled) %>
               </label>
             </div>
@@ -50,6 +50,7 @@
         <div class="form-buttons actions filter-actions" data-hook="admin_banner_index_search_buttons">
           <%= button Spree.t(:search), 'fa fa-search' %>
         </div>
+      </div>
     <% end %>
   </div>
 <% end %>
@@ -64,6 +65,7 @@
   <col style="width: 15%;">
   <col style="width: 10%;">
   <col style="width: 10%;">
+  <col style="width: 10%;">
   <col style="width: 17%;">
 </colgroup>
 <thead>
@@ -72,6 +74,7 @@
     <th><%= t(:thumbnail) %></th>
     <th><%= t(:category) %></th>
     <th><%= t(:url) %></th>
+    <th><%= t(:enabled) %></th>
     <th data-hook="admin_banner_index_header_actions" class="actions"></th>
   </tr>
 </thead>
@@ -85,6 +88,7 @@
     <td class="align-center"><%= image_tag(banner_box.attachment(:mini)) %></td>
     <td class="align-center"><%= banner_box.category rescue '' %></td>
     <td class="align-center"><%= banner_box.url rescue '' %></td>
+    <td class="align-center"><%= banner_box.enabled ? t('y') : t('n') %></td>
     <td class="actions" data-hook="admin_banner_index_row_actions">
       <%= link_to_edit banner_box, :no_text => true, :class => 'edit' %>
       &nbsp;

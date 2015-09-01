@@ -9,11 +9,15 @@ module Spree
       def create
         update_paperclip_settings
         @styles = ActiveSupport::JSON.decode(SpreeBanner::Config[:banner_styles])
+        @categories = SpreeBanner::Config[:categories]
+
         super
       end
 
       def edit
         @styles = ActiveSupport::JSON.decode(SpreeBanner::Config[:banner_styles])
+        @categories = SpreeBanner::Config[:categories]
+
       end
 
       def update

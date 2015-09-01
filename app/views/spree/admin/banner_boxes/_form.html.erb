@@ -3,7 +3,7 @@
   <div class="left eight columns alpha" data-hook="admin_banner_box_form_left">
     <%= f.field_container :category do %>
       <%= f.label :category, raw(t(:category) + content_tag(:span, ' *', :class => 'required')) %>
-      <%= f.text_field :category, :class => 'fullwidth title' %>
+      <%= f.select :category, SpreeBanner::Config.categories, {}, :class => 'fullwidth title' %>
       <%= f.error_message_on :category %>
     <% end %>
 
