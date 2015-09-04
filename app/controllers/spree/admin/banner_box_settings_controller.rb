@@ -25,7 +25,6 @@ module Spree
 
         SpreeBanner::Config.set(params[:preferences])
         update_paperclip_settings
-
         respond_to do |format|
           format.html {
             flash[:notice] = t(:banner_settings_updated)

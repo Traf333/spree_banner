@@ -39,9 +39,14 @@ module Spree
     Spree::BannerBox.attachment_definitions[:attachment][:url] = SpreeBanner::Config[:banner_url]
     Spree::BannerBox.attachment_definitions[:attachment][:default_url] = SpreeBanner::Config[:banner_default_url]
     Spree::BannerBox.attachment_definitions[:attachment][:default_style] = SpreeBanner::Config[:banner_default_style]
-    
+
+    def self.attachemnt_reprocess!
+      find_each { |banner| Rails.logger.info('check'); banner.attachment.reprocess!}
+    end
+
     # for adding banner_boxes which are closely related to existing ones
     # define "duplicate_extra" for site-specific actions, eg for additional fields
+
     def duplicate
       enhance_settings
       p = self.dup
